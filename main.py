@@ -30,7 +30,7 @@ async def on_message(message):
     if message.author==client.user:
         return
     
-    #msg= message.content
+    msg= message.content
     if message.content.startswith('$ping') or message.content.startswith('$Ping'):
         await message.channel.send(f"Pong! {round(client.latency * 1000)}ms")
     if message.content.startswith('$help'):
@@ -49,7 +49,7 @@ async def on_message(message):
         await context.message.channel.send(embed=myEmbed)
     await client.process_commands(message)
     if any(word in msg for word in sad):
-        #await message.channel.send(random.choice(starter_enc))
+        await message.channel.send(random.choice(starter_enc))
 
 keep_alive()
 client.run(os.environ.get("TOKEN"))
